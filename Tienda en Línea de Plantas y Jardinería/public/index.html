@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-background-light">
+<div class="min-vh-100 d-flex flex-column">
+    <header class="bg-primary-custom text-white shadow">
+        <div class="container-fluid px-4 py-3 d-flex justify-content-between align-items-center">
+            <div class="fs-5 fw-bold">INICIO</div>
+
+            <div class="d-flex align-items-center gap-3">
+                <div class="position-relative">
+                     <input class="form-control bg-white text-dark rounded py-1 px-3 border-0" placeholder="Search" type="text" id="searchInput"/>
+                </div>
+                <span class="fs-5 fw-semibold">$0.00</span>
+                <span class="fs-5 fw-semibold">|</span>
+                <a class="fs-5 fw-semibold text-white text-decoration-none" href="#">LOGIN</a>
+            </div>
+        </div>
+    </header>
+    <main class="flex-grow container-fluid px-4 py-5">
+        <h2 class="display-4 fw-bold text-center mb-5 text-text-light">Plantas</h2>
+        <div class="bg-card-light rounded shadow-lg p-4">
+            <div class="row g-4">
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center product-card">
+                    <div class="card-content">
+                        <div class="bg-white p-2 rounded shadow-sm product-image-wrapper">
+                            <img alt="Petunias en una cesta colgante" class="w-100" style="height: 8rem; object-fit: cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-qrYG0E3-Xr5L0cdguwLAELivjPiEUPw2dRsW1Cia2T5eDM_SYkcm__0qfV3PeWfDWlZKFs-KXeHom3X38LRYQN5FOGjvZcW2jGCEcSTdTzKJyeqpCgU907tFVHIQr7u4nVANg-Q8VPMXYIxLHmL5ZRWy6TGsh9LqvIG3jcDLZ3Bm2AZxk1qaDe-EqTwW1n2zevN3tzliX-QeopRUI751k949vxf7lDFu7GntyUktO3TbMAhJp552QjVSQoG7pdmKoY84d3sOhHTr"/>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="fw-semibold text-text-light fs-6 mb-0">Petunias</h3>
+                            <p class="fw-bold text-muted mb-0">$0.00</p>
+                        </div>
+                        <div class="btn-container">
+                            <button class="w-100 btn btn-primary-custom text-white small fw-bold py-2 px-2 rounded d-flex align-items-center justify-content-center gap-1">
+                                <i class="bi bi-cart-plus"></i>
+                                <span>AGREGAR AL CARRITO</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center product-card">
+                    <div class="card-content">
+                        <div class="bg-white p-2 rounded shadow-sm product-image-wrapper">
+                            <img alt="Flores blancas de Romero" class="w-100" style="height: 8rem; object-fit: cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBXZ3AHsVyU3pm_XCHfyVzqwdsG2lUb_Df0PmvPVCM0fcKmNyvc7KUUmnISuot8w_TdAkyZrDJ8VI6uAyiRfzDdpIEHnn2M548z_UrKr3ZUlY4XD5M9gnrSiyVgnW6vaKRleGt5m6CWLatvhda7JVk6OXt95CCQX6zrqJcIyrimbdY37N-YK95BAWNXASvwn2FHSLzrRiEhZ06X8y1MW3wnIMgKfmnTpQh0aMNHtXMtynPJUXBn4as1rAYItim79QabPNhYyy7tsKV"/>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="fw-semibold text-text-light fs-6 mb-0">Romero</h3>
+                            <p class="fw-bold text-muted mb-0">$0.00</p>
+                        </div>
+                        <div class="btn-container">
+                            <button class="w-100 btn btn-primary-custom text-white small fw-bold py-2 px-2 rounded d-flex align-items-center justify-content-center gap-1">
+                                <i class="bi bi-cart-plus"></i>
+                                <span>AGREGAR AL CARRITO</span>
+                            </button>
+                </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center product-card">
+                    <div class="card-content">
+                        <div class="bg-white p-2 rounded shadow-sm product-image-wrapper">
+                            <img alt="Flor amarilla de Diente de León" class="w-100" style="height: 8rem; object-fit: cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaS_V6aUb2mNlXwy5e8RYUnp_LA42Hs1k8wGixUxMUOZ_KaMCjImSiB4RP-Q9C1c-HGxz_Fr-PQ3rCeONd5t6-bdL284A-O3y62FZKLGryJsFZJ69vUSMp6BgI-MJ-wUkvAjzsX_L6MYsTjKQYRs1Ak9sKgz8OiGl0wwbR4vEfjo6RajJv0WkwLq9NxyzTHxkzZBCBSthKmzM82NznZVzE9SNr8tCR96G0nChRCUaNgj7ml0ScKmgGxBRcm8uJm5tjwZ9fwYguGC3C"/>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="fw-semibold text-text-light fs-6 mb-0">Diente de Leon</h3>
+                            <p class="fw-bold text-muted mb-0">$0.00</p>
+                        </div>
+                        <div class="btn-container">
+                            <button class="w-100 btn btn-primary-custom text-white small fw-bold py-2 px-2 rounded d-flex align-items-center justify-content-center gap-1">
+                                <i class="bi bi-cart-plus"></i>
+                                <span>AGREGAR AL CARRITO</span>
+                            </button>
+                </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center product-card">
+                    <div class="card-content">
+                        <div class="bg-white p-2 rounded shadow-sm product-image-wrapper">
+                            <img alt="Planta de Albahaca en una maceta negra" class="w-100" style="height: 8rem; object-fit: cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ3BMTkI3VS8G3JSdlVAdYraNkmKqYHA9mvAAupLiAcNSr40-U6D0vB2i_kkH6RJdmUTktVfMIXmxE20H_JcKybUkm8M_Jjwj-KnLVkdtUWSVSg7bSqnrNCks0UZsCc9umadyvQlZLrtzaAQuU3XqAkXqIIqwDVtL6lXtcnzS8gTgWcXJoZ_Xwt6jNRgSvPTuUDMEHQ3PZsW_ZkNbgzGIoyLUjt0i28DT_h-HQeHIr_o4vtwUfrYKVIUzrFuf-zV6DkLq4DRqXPB6h"/>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="fw-semibold text-text-light fs-6 mb-0">Albahaca</h3>
+                            <p class="fw-bold text-muted mb-0">$0.00</p>
+                        </div>
+                        <div class="btn-container">
+                            <button class="w-100 btn btn-primary-custom text-white small fw-bold py-2 px-2 rounded d-flex align-items-center justify-content-center gap-1">
+                                <i class="bi bi-cart-plus"></i>
+                                <span>AGREGAR AL CARRITO</span>
+                            </button>
+                </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center product-card">
+                    <div class="card-content">
+                        <div class="bg-white p-2 rounded shadow-sm product-image-wrapper">
+                            <img alt="Planta de Aloe Vera en una maceta de terracota" class="w-100" style="height: 8rem; object-fit: cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUilmCj_cnH2qfeCKmQI5tF6ey370z9-Sap4BjtnHgplzW9BtVGx6nxvG1RK9XixOR8bAelAj6zlN7lEKkSOJ9JnDLvkq6XseOdM0opHNqOL7eVZmqzDogu35Mr4jfmYz3idDhTSIoDzYIoc9xHz7CFy7jFSOW1xzoZlzF57e3S_W9l8iGY85wXn5CMeRIQSU9JPGfQ9aLV3fTigj91anVJ7DqRPFxyNm9CQy11vG2sTNNIuE_NFyLFHBvI0dzV_cQuTQUunRhtxt7"/>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="fw-semibold text-text-light fs-6 mb-0">Aloe Vera</h3>
+                            <p class="fw-bold text-muted mb-0">$0.00</p>
+                        </div>
+                        <div class="btn-container">
+                            <button class="w-100 btn btn-primary-custom text-white small fw-bold py-2 px-2 rounded d-flex align-items-center justify-content-center gap-1">
+                                <i class="bi bi-cart-plus"></i>
+                                <span>AGREGAR AL CARRITO</span>
+                            </button>
+                </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center product-card">
+                    <div class="card-content">
+                        <div class="bg-white p-2 rounded shadow-sm product-image-wrapper">
+                            <img alt="Flores rosas de Aloe Vera en una maceta" class="w-100" style="height: 8rem; object-fit: cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsVfVVyz_JjlPPSPXPwJCnYi5aA0bY5_LuLf8nspao_Dn7AvjTHgGy0R_lmNikbyMsqLmsDTGmIhxI9LT0RjV94qhAWWOz6KuDSbyA2d04Lu6tqqMfzS9m6laZD1grDhKyI83oJTY8gds7Udz-qAnWufFOWm87oEr3u7ZTXZQXCQ5msUpAp6j659VggLeI5-83eSjo1z2Tz0OzhFkuwkIUmZavBdUcyoOL2skMO1WehDHh1ocgCzvkbxcR6-F6B_WNY8XzSi7ZAMjQ"/>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="fw-semibold text-text-light fs-6 mb-0">Aloe Vera</h3>
+                            <p class="fw-bold text-muted mb-0">$0.00</p>
+                        </div>
+                        <div class="btn-container">
+                            <button class="w-100 btn btn-primary-custom text-white small fw-bold py-2 px-2 rounded d-flex align-items-center justify-content-center gap-1">
+                                <i class="bi bi-cart-plus"></i>
+                                <span>AGREGAR AL CARRITO</span>
+                            </button>
+                </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center product-card">
+                    <div class="card-content">
+                        <div class="bg-white p-2 rounded shadow-sm product-image-wrapper">
+                            <img alt="Planta Cinta en una maceta blanca" class="w-100" style="height: 8rem; object-fit: cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN7Jk2WnaOSMmdirkyxf0zJGe636DVaSCx2JFM--GggguzIdU6_Z5GSDy2JtGEb24E5vkfPPeQWFb6ZEoYGXh7WLPaRPB1An_0uvUnRuc_00othMR5MwSBTH23M8e_oI6H1fK8ONCoWrHWOBUlTbAN98btPWN3xn0E1JmBYZpDtVSLnHJyW8bPInr_SSzglHABiPlTvXSDclg1uGz-lHekpHeLkErZfPLY7LCYTyARTdFmqpMav82ca8xFNk4yQnGiEycjy3vn2gk7"/>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="fw-semibold text-text-light fs-6 mb-0">Cinta</h3>
+                            <p class="fw-bold text-muted mb-0">$0.00</p>
+                        </div>
+                        <div class="btn-container">
+                            <button class="w-100 btn btn-primary-custom text-white small fw-bold py-2 px-2 rounded d-flex align-items-center justify-content-center gap-1">
+                                <i class="bi bi-cart-plus"></i>
+                                <span>AGREGAR AL CARRITO</span>
+                            </button>
+                </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center product-card">
+                    <div class="card-content">
+                        <div class="bg-white p-2 rounded shadow-sm product-image-wrapper">
+                            <img alt="Flores rosas de Azalea en una maceta" class="w-100" style="height: 8rem; object-fit: cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRJd4KQZD54NsR_jaZVC2cXjkj9RXzJizU_Hxc-EWU-WjQHEHLlaeazslBvXMsj_y0BmGVZXguqJCOUl2hb9aa9d55bBqCG9EwhAEJ4Ft6k0GbEGpT5ER9Uv-G1fd75IkJ-CyW2KFX04QOFstIuAR7rkdwH5DgoOvsh0xFchthD8NjtUnNynRl5yPgY827E68jDAXHQ2cqHtQaHHBknCvIpOcpRPSde-uNGrfgQ-3TsRiGrUtwyWZXbfWE9IimRvvx0pL56tKIooAD"/>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="fw-semibold text-text-light fs-6 mb-0">Azalea</h3>
+                            <p class="fw-bold text-muted mb-0">$0.00</p>
+                        </div>
+                        <div class="btn-container">
+                            <button class="w-100 btn btn-primary-custom text-white small fw-bold py-2 px-2 rounded d-flex align-items-center justify-content-center gap-1">
+                                <i class="bi bi-cart-plus"></i>
+                                <span>AGREGAR AL CARRITO</span>
+                            </button>
+                </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center product-card">
+                    <div class="card-content">
+                        <div class="bg-white p-2 rounded shadow-sm product-image-wrapper">
+                            <img alt="Flores rosas de Clavel en una maceta" class="w-100" style="height: 8rem; object-fit: cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChy8EW6HgpR_qgtrkZvkYqn_U6wwAURMK0e1lgB6mWs-zOAwEZGyEjn60cFd6Rp8sQvDhnaFNCPQFVa9o4hOiijNYmQeGcDDVfqw286aE58-FZU7UdNUUe3ad4U219m7r0kudl6qgvF_VtyEOfzZ0xQzNlgvldojFaie1ycTxGp02xkbPsq94ZfrjZEeE3jh7sDxLMf2B0hqvfXjTqrR-a8k3SL45ZKP6Tdmmlz4QyVHGODFJS37Gmpv-VoQ19Noi5dQkaBKUb142L"/>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="fw-semibold text-text-light fs-6 mb-0">Clavel</h3>
+                            <p class="fw-bold text-muted mb-0">$0.00</p>
+                        </div>
+                        <div class="btn-container">
+                            <button class="w-100 btn btn-primary-custom text-white small fw-bold py-2 px-2 rounded d-flex align-items-center justify-content-center gap-1">
+                                <i class="bi bi-cart-plus"></i>
+                                <span>AGREGAR AL CARRITO</span>
+                            </button>
+                </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center product-card">
+                    <div class="card-content">
+                        <div class="bg-white p-2 rounded shadow-sm product-image-wrapper">
+                            <img alt="Flores rojas de Hortensia en una maceta" class="w-100" style="height: 8rem; object-fit: cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcZrdkyESAsTdpV0RBsgwC4m2i-MyPuZ6fZDmGA5-ANBsnP8lM6UtgDnZeaLTSZBgl8xEIgB_rdW8-3rUQfwhxcA3j2Vvnc6iqReBmfZvBr2lyHcpFT8VKYb84JOmSMZsYSMrKZISDvymvw1gqAs_-LCBdb00dXpYKTafGCsdSlS70ZaoK6Q6FCtHNn_IJw0YkOLYUKy1HvIv_Ww6VHnOAeXXJ4K7U_rLNH7vO5KV3DmUFtRzbiFURyVvthCPO13c-Y50b5urelmJc"/>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="fw-semibold text-text-light fs-6 mb-0">Hortensia</h3>
+                            <p class="fw-bold text-muted mb-0">$0.00</p>
+                        </div>
+                        <div class="btn-container">
+                            <button class="w-100 btn btn-primary-custom text-white small fw-bold py-2 px-2 rounded d-flex align-items-center justify-content-center gap-1">
+                                <i class="bi bi-cart-plus"></i>
+                                <span>AGREGAR AL CARRITO</span>
+                            </button>
+                </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center product-card">
+                    <div class="card-content">
+                        <div class="bg-white p-2 rounded shadow-sm product-image-wrapper">
+                            <img alt="Margaritas blancas y amarillas en una maceta" class="w-100" style="height: 8rem; object-fit: cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz4XEv5V1-zr-jq_xVFy-NPcDtjKSiN6g-bjRp4PVeYgP-0d9qFAmodwH7gfH8-6cwoFFOH__kVfYViNCkkdicDzA4EVdQY9EqBmI4YE15qzgBiiHyk_55IJVVoXtExy4VPI2PwMOOsMLiMQc0HFL9f3OmdNGr_4GrybtkhqfuEQdNRObOCf8noVPK-UzwRnBvZmjescJj76Enz38x7I1tbCxpiG5JxVyDudHjVSD6dgnc8KRc3HTFtdj5l-U5nkULLjfrOS5M8fcv"/>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="fw-semibold text-text-light fs-6 mb-0">Margarita</h3>
+                            <p class="fw-bold text-muted mb-0">$0.00</p>
+                        </div>
+                        <div class="btn-container">
+                            <button class="w-100 btn btn-primary-custom text-white small fw-bold py-2 px-2 rounded d-flex align-items-center justify-content-center gap-1">
+                                <i class="bi bi-cart-plus"></i>
+                                <span>AGREGAR AL CARRITO</span>
+                            </button>
+                </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center product-card">
+                    <div class="card-content">
+                        <div class="bg-white p-2 rounded shadow-sm product-image-wrapper">
+                            <img alt="Orquídea blanca en una maceta blanca" class="w-100" style="height: 8rem; object-fit: cover;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9GavvnDCMYKADUzVF4GUQuKszb5j42CIsuhwpgTjWxkIPTFmp5HsWZ60j0DDBY-tAL1rpblcvuYPA192s_pMWfi_x_GifYOx8bN7Rt4xCVStFNpDHQlXY_lbdoYga2OS-ctz64x4vytGMFn7w3DR0g77IC6WXeZEcngcvkoODDRXw9hmBEMQwPv_rfx-rIuXCjlC0lg_f8ZX50nk6n7VSvJqCASpMh_XJuWL2fli1uQfNRvaoS2qZI0h2dQyBHlCH19ZEVK4f9pjp"/>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="fw-semibold text-text-light fs-6 mb-0">Orquídea</h3>
+                            <p class="fw-bold text-muted mb-0">$0.00</p>
+                        </div>
+                        <div class="btn-container">
+                            <button class="w-100 btn btn-primary-custom text-white small fw-bold py-2 px-2 rounded d-flex align-items-center justify-content-center gap-1">
+                                <i class="bi bi-cart-plus"></i>
+                                <span>AGREGAR AL CARRITO</span>
+                            </button>
+                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <button class="btn bg-accent-light text-white fw-bold py-3 px-4 rounded fs-5">
+                    Ver mas
+                </button>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-footer-light text-white text-center p-4 mt-auto">
+        <p class="mb-0">Informacion de la pagina</p>
+    </footer>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JavaScript personalizado -->
+<script src="js/config.js"></script>
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+/* Variables de color */
+:root {
+    --primary-color: #1E5631;
+    --background-light: #fbf2e0;
+    --accent-light: #FF9800;
+}
+
+/* Estilos base */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-light);
+}
+
+/* Colores personalizados */
+.bg-primary-custom { background-color: var(--primary-color) !important; }
+.bg-background-light { background-color: var(--background-light); }
+.bg-card-light { background-color: #FFFFFF; }
+.text-text-light { color: #1F2937; }
+.bg-accent-light { background-color: var(--accent-light); }
+.bg-footer-light { background-color: var(--primary-color); }
+
+/* Botón personalizado */
+.btn-primary-custom {
+    background-color: #67A981;
+    border-color: #67A981;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.btn-primary-custom:hover {
+    background-color: #5a9574;
+    border-color: #5a9574;
+}
+
+/* Alineación de tarjetas */
+.row { align-items: stretch; }
+.product-card { 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
+}
+
+.product-card .card-content { 
+    display: flex; 
+    flex-direction: column; 
+    flex: 1; 
+    height: 100%;
+}
+
+/* Contenedor de la imagen para efecto zoom */
+.product-image-wrapper {
+    overflow: hidden;
+    border-radius: 0.25rem;
+}
+
+.product-image-wrapper img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover .product-image-wrapper img {
+    transform: scale(1.15);
+}
+
+/* Contenedor de información del producto */
+.product-card .product-info {
+    min-height: 6rem; /* Altura fija para alinear botones */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.product-card .btn-container { 
+    margin-top: auto; 
+    padding-top: 1rem;
+}
+
+[class*="col-"] { 
+    display: flex !important; 
+}
