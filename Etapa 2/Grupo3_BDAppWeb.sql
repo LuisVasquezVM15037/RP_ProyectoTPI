@@ -54,15 +54,13 @@ CREATE TABLE `detallepedido` (
   `id_producto` int(11) NOT NULL,
   `cantidad_producto` int(11) NOT NULL,
   `total_detalle_pedido` float NOT NULL,
-  `precio_unitario_capturado` float NOT NULL,
   PRIMARY KEY (`id_detalle_pedido`),
   KEY `fk_detalle_pedido_pedido` (`id_pedido`),
   KEY `fk_detalle_pedido_producto` (`id_producto`),
   CONSTRAINT `fk_detalle_pedido_pedido` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`) ON DELETE CASCADE,
   CONSTRAINT `fk_detalle_pedido_producto` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`),
   CONSTRAINT `chk_cantidad_producto` CHECK (`cantidad_producto` > 0),
-  CONSTRAINT `chk_total_detalle` CHECK (`total_detalle_pedido` > 0),
-  CONSTRAINT `chk_precio_capturado` CHECK (`precio_unitario_capturado` > 0)
+  CONSTRAINT `chk_total_detalle` CHECK (`total_detalle_pedido` > 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -167,7 +165,6 @@ CREATE TABLE `producto` (
   `stock` int(11) NOT NULL DEFAULT 0,
   `imagen_url` varchar(350) DEFAULT NULL,
   `proveedor` varchar(100) DEFAULT NULL,
-  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id_producto`),
   UNIQUE KEY `sku` (`sku`),
   KEY `fk_producto_categoria` (`id_categoria`),
@@ -234,7 +231,6 @@ CREATE TABLE `usuario` (
   `direccion_usuario` varchar(150) DEFAULT NULL,
   `telefono_usuario` int(11) DEFAULT NULL,
   `rol_usuario` int(11) NOT NULL DEFAULT 0,
-  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `email_usuario` (`email_usuario`),
   CONSTRAINT `chk_rol_usuario` CHECK (`rol_usuario` in (0,1)),
@@ -250,14 +246,6 @@ LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'grupo3_bdappweb'
---
-
---
--- Dumping routines for database 'grupo3_bdappweb'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -268,4 +256,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-10-15 13:01:44
+-- Dump completed on 2025-10-15 15:24:05
