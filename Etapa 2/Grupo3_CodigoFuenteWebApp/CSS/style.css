@@ -15,6 +15,24 @@ body {
     color: var(--text-light);
 }
 
+/* Utilidades de color y clases compartidas */
+.bg-primary-custom { background-color: var(--primary-color) !important; }
+.bg-card-light { background-color: #FFFFFF; }
+.bg-accent-light { background-color: var(--accent-light); }
+.text-text-light { color: var(--text-light); }
+
+/* Botón personalizado (restaura el color verde) */
+.btn-primary-custom {
+    background-color: #67A981;
+    border-color: #67A981;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.btn-primary-custom:hover {
+    background-color: #5a9574;
+    border-color: #5a9574;
+}
+
 /* Header con hojas reales */
 .header-jardineria {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-light) 100%);
