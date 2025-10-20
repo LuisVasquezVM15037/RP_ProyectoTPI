@@ -9,27 +9,48 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) === 1) {
-        echo "Inicio de sesión correcto";
+        echo "<script>alert('✅ Inicio de sesión correcto');</script>";
+        // redirigir:
+        // header("Location: ../index.php");
     } else {
-        echo "Usuario o contraseña incorrectos";
+        echo "<script>alert('❌ Usuario o contraseña incorrectos');</script>";
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="../CSS/login.css">
 </head>
 <body>
-    <h2>Iniciar sesión</h2>
-    <form method="POST" action="">
-        <label>Email:</label><br>
-        <input type="text" name="email_usuario" required><br><br>
-        <label>Contraseña:</label><br>
-        <input type="password" name="contrasenia_usuario" required><br><br>
-        <button type="submit">Ingresar</button>
-    </form>
+    <div class="header">
+        <div>INICIO</div>
+        <div>REGISTRO</div>
+    </div>
+
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form method="POST" action="">
+                <label>Email:</label>
+                <input type="text" name="email_usuario" required>
+
+                <label>Contraseña:</label>
+                <input type="password" name="contrasenia_usuario" required>
+
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+
+        <div>
+            <img src="../Images/plantas.png" alt="Plantas" width="350px">
+        </div>
+    </div>
+
+    <div class="footer">
+        Información de la página
+    </div>
 </body>
 </html>
