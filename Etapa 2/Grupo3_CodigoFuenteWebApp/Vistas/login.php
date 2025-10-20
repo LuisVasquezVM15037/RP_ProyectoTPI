@@ -21,8 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-<link rel="stylesheet" href="/proyecto_grupo3/Etapa%202/Grupo3_CodigoFuenteWebApp/CSS/login.css"></head>
-<body>
+<link rel="stylesheet" href="../CSS/login.css"><body>
     <div class="header">
         <div>INICIO</div>
         <div>REGISTRO</div>
