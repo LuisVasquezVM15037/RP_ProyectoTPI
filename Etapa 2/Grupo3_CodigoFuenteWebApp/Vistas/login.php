@@ -1,5 +1,5 @@
 <?php
-include('conexion.php');
+include('../config/conexion.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email_usuario'];
@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_num_rows($result) === 1) {
         echo "<script>alert('✅ Inicio de sesión correcto');</script>";
-        // redirigir:
         // header("Location: ../index.php");
     } else {
         echo "<script>alert('❌ Usuario o contraseña incorrectos');</script>";
