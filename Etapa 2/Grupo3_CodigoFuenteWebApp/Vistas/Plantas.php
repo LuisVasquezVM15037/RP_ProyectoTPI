@@ -1,79 +1,26 @@
 <?php
-// Datos de las plantas
-$plantas = [
-    [
-        'nombre' => 'Petunias',
-        'precio' => '$0.00',
-        'imagen' => '../Images/plantas/petunias.jpg',
-        'alt' => 'Petunias en una cesta colgante'
-    ],
-    [
-        'nombre' => 'Romero',
-        'precio' => '$0.00',
-        'imagen' => '../Images/plantas/romero.jpg',
-        'alt' => 'Flores blancas de Romero'
-    ],
-    [
-        'nombre' => 'Diente de Leon',
-        'precio' => '$0.00',
-        'imagen' => '../Images/plantas/diente_de_leon.jpg',
-        'alt' => 'Flor amarilla de Diente de León'
-    ],
-    [
-        'nombre' => 'Albahaca',
-        'precio' => '$0.00',
-        'imagen' => '../Images/plantas/albahaca.jpg',
-        'alt' => 'Planta de Albahaca en una maceta negra'
-    ],
-    [
-        'nombre' => 'Aloe Vera',
-        'precio' => '$0.00',
-        'imagen' => '../Images/plantas/aloe_vera.jpg',
-        'alt' => 'Planta de Aloe Vera en una maceta de terracota'
-    ],
-    [
-        'nombre' => 'Aloe Vera con Flor',
-        'precio' => '$0.00',
-        'imagen' => '../Images/plantas/aloe_vera_flores.jpg',
-        'alt' => 'Flores rosas de Aloe Vera en una maceta'
-    ],
-    [
-        'nombre' => 'Cinta',
-        'precio' => '$0.00',
-        'imagen' => '../Images/plantas/cinta.jpg',
-        'alt' => 'Planta Cinta en una maceta blanca'
-    ],
-    [
-        'nombre' => 'Azalea',
-        'precio' => '$0.00',
-        'imagen' => '../Images/plantas/azalea.jpg',
-        'alt' => 'Flores rosas de Azalea en una maceta'
-    ],
-    [
-        'nombre' => 'Clavel',
-        'precio' => '$0.00',
-        'imagen' => '../Images/plantas/clavel.jpg',
-        'alt' => 'Flores rosas de Clavel en una maceta'
-    ],
-    [
-        'nombre' => 'Hortensia',
-        'precio' => '$0.00',
-        'imagen' => '../Images/plantas/hortensia.jpg',
-        'alt' => 'Flores rojas de Hortensia en una maceta'
-    ],
-    [
-        'nombre' => 'Margarita',
-        'precio' => '$0.00',
-        'imagen' => '../Images/plantas/margarita.jpg',
-        'alt' => 'Margaritas blancas y amarillas en una maceta'
-    ],
-    [
-        'nombre' => 'Orquídea',
-        'precio' => '$0.00',
-        'imagen' => '../Images/plantas/orquidea.jpg',
-        'alt' => 'Orquídea blanca en una maceta blanca'
-    ]
-];
+$conn = require_once('../config/conexion.php');
+
+// Obtener productos de la categoría Plantas
+$sql = "SELECT p.* FROM producto p 
+INNER JOIN categoria c ON p.id_categoria = c.id_categoria 
+WHERE c.nombre_categoria = 'Plantas'";
+$result = $conn->query($sql);
+$plantas = [];
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $plantas[] = [
+            'nombre' => $row['nombre_producto'],
+            'precio' => '$' . number_format($row['precio_unitario'], 2),
+            'imagen' => $row['imagen_url'],
+            'alt' => $row['descripcion'],
+            'stock' => $row['stock']
+        ];
+    }
+}
+
+$conn->close();
 
 $usuario = "Néstor";
 $saldo = "$0.00";
@@ -157,6 +104,7 @@ $saldo = "$0.00";
                         <div class="product-info">
                             <h3 class="fw-semibold text-text-light fs-6 mb-0"><?php echo $planta['nombre']; ?></h3>
                             <p class="fw-bold text-muted mb-0"><?php echo $planta['precio']; ?></p>
+                            <p class="text-muted small">Stock: <?php echo $planta['stock']; ?> unidades</p>
                         </div>
                         <div class="btn-container">
                             <button class="w-100 btn btn-primary-custom text-white small fw-bold py-2 px-2 rounded d-flex align-items-center justify-content-center gap-1">
