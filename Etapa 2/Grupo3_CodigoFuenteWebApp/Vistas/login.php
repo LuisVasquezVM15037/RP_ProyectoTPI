@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <!-- ✅ Ruta corregida -->
+ 
     <link rel="stylesheet" href="../CSS/login.css">
 </head>
 <body>
