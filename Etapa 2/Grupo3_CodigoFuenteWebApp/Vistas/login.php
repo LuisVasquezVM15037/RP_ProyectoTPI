@@ -9,8 +9,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) === 1) {
-        echo "<script>alert('✅ Inicio de sesión correcto');</script>";
-        // header("Location: ../index.php");
+        // Iniciar sesión
+        session_start();
+        $_SESSION['usuario'] = $email;
+
+        // Redirigir al index
+        header("Location: ../index.php");
+        exit();
     } else {
         echo "<script>alert('❌ Usuario o contraseña incorrectos');</script>";
     }
@@ -21,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
- 
     <link rel="stylesheet" href="../CSS/login.css">
 </head>
 <body>
