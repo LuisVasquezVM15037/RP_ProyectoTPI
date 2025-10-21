@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <div>
-            <img src="../Images/plantas.png" alt="Plantas" width="350px">
+            <img src="../Images/plantas/Planta.JPEG" alt="Plantas" width="350px">
         </div>
     </div>
 
