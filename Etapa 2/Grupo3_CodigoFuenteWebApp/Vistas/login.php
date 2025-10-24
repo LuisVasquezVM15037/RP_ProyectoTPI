@@ -1,23 +1,19 @@
 <?php
 include('../config/conexion.php');
+include('../Controladores/login_controller.php'); // Incluir el controlador
+
+// Crear instancia del controlador
+$loginController = new LoginController($conn);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email_usuario'];
     $password = $_POST['contrasenia_usuario'];
-
-    $sql = "SELECT * FROM usuario WHERE email_usuario='$email' AND contrasenia_usuario='$password'";
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) === 1) {
-        // Iniciar sesión
-        session_start();
-        $_SESSION['usuario'] = $email;
-
-        // Redirigir al index
-        header("Location: ../index.php");
-        exit();
-    } else {
-        echo "<script>alert('❌ Usuario o contraseña incorrectos');</script>";
+    
+    // Usar el controlador para hacer login
+    $resultado = $loginController->login($email, $password);
+    
+    if ($resultado !== true) {
+        echo "<script>alert('$resultado');</script>";
     }
 }
 ?>

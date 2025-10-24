@@ -1,0 +1,335 @@
+/* (Mantener todos los estilos CSS igual) */
+        .producto-simple {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .contenedor-principal {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .tarjeta-producto {
+            flex: 1;
+            background: var(--card-light);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .seccion-lateral {
+            flex: 0 0 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .producto-titulo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .contenido-tarjeta {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .columna-imagen {
+            flex: 0 0 45%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .producto-imagen-contenedor {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .producto-imagen {
+            max-height: 280px;
+            object-fit: contain;
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        .info-imagen {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .sku-container, .stock-container {
+            font-size: 14px;
+            color: #666;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            flex: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .icono-stock {
+            font-size: 1.5rem;
+            color: #67A981;
+        }
+        
+        .columna-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .precio-producto {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #e53935;
+            margin-bottom: 15px;
+        }
+        
+        .producto-descripcion {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .seccion-caracteristicas {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            flex: 1;
+        }
+        
+        .caracteristicas-titulo {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .caracteristicas-texto {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .seccion-botones {
+            background: var(--card-light);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .botones-accion {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .boton-accion-grande {
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .boton-carrito {
+            background-color: #67A981;
+            color: white;
+        }
+        
+        .boton-carrito:hover {
+            background-color: #5a9574;
+        }
+        
+        .boton-comprar {
+            background-color: #FF9800;
+            color: white;
+        }
+        
+        .boton-comprar:hover {
+            background-color: #e68900;
+        }
+        
+        .seccion-resenias {
+            margin-top: 40px;
+            padding: 30px;
+            background: var(--card-light);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .seccion-titulo {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .estrella {
+            color: #ffc107;
+            font-size: 1.2rem;
+        }
+        
+        .estrella-vacia {
+            color: #ddd;
+            font-size: 1.2rem;
+        }
+        
+        .resenia-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .usuario-resenia {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        
+        .fecha-resenia {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        .btn-resenias {
+            background-color: #67A981;
+            border-color: #67A981;
+            color: white;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .btn-resenias:hover {
+            background-color: #5a9574;
+            border-color: #5a9574;
+        }
+        
+        .rating-stars {
+            display: inline-flex;
+            gap: 2px;
+        }
+        
+        .textarea-resenia {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            resize: vertical;
+            min-height: 120px;
+            margin-bottom: 15px;
+            font-family: inherit;
+        }
+        
+        .rating-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .btn-login {
+            background-color: #67A981;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .btn-login:hover {
+            background-color: #5a9574;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .btn-logout {
+            background-color: #dc3545;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-logout:hover {
+            background-color: #c82333;
+            color: white;
+        }
+        
+        .inicio-link {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .inicio-link:hover {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+        
+        .mensaje-ya-resenio {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .contenedor-principal {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .seccion-lateral {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+            
+            .contenido-tarjeta {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .columna-imagen {
+                flex: 0 0 auto;
+            }
+            
+            .info-imagen {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .producto-titulo {
+                font-size: 24px;
+            }
+        }

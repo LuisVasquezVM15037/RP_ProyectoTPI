@@ -4,21 +4,25 @@ $categorias = [
     [
         'nombre' => 'Palas',
         'imagen' => '../images/pala.png',
-        'url' => 'productos.php?categoria=palas'
+        'url' => 'Palas.php'
     ],
     [
         'nombre' => 'Regaderas',
         'imagen' => '../images/regadera.png',
-        'url' => 'productos.php?categoria=regaderas'
+        'url' => 'Regaderas.php'
     ],
     [
         'nombre' => 'Guantes',
         'imagen' => '../images/Guantes.png',
-        'url' => 'productos.php?categoria=guantes'
+        'url' => 'Guantes.php'
     ]
 ];
 
-$usuario = "Rocio";
+// Incluir verificación de autenticación
+include('../Controladores/auth_check.php');
+
+// Determinar saludo y opciones de usuario
+$saludo = isset($_SESSION['usuario_nombre']) ? "Hola, " . $_SESSION['usuario_nombre'] : "Bienvenido";
 $saldo = "$0.00";
 ?>
 
@@ -35,13 +39,59 @@ $saldo = "$0.00";
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .btn-login {
+            background-color: #67A981;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .btn-login:hover {
+            background-color: #5a9574;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .btn-logout {
+            background-color: #dc3545;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-logout:hover {
+            background-color: #c82333;
+            color: white;
+        }
+        
+        .inicio-link {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .inicio-link:hover {
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body class="bg-background-light">
 <div class="min-vh-100 d-flex flex-column">
-    <!-- Header con hojas reales -->
+    <!-- Header con hojas reales - Mismo grosor que index -->
     <header class="header-jardineria">
         <div class="leaf-overlay">
-            <!-- Hojas individuales con contorno completo -->
             <div class="leaf leaf-1"></div>
             <div class="leaf leaf-2"></div>
             <div class="leaf leaf-3"></div>
@@ -50,7 +100,8 @@ $saldo = "$0.00";
             <div class="leaf leaf-6"></div>
         </div>
         <div class="container-fluid px-4 py-3 d-flex justify-content-between align-items-center position-relative">
-            <div class="fs-5 fw-bold text-white">INICIO</div>
+            <!-- Enlace INICIO que lleva al index -->
+            <a href="../index.php" class="fs-5 fw-bold text-white inicio-link">INICIO</a>
             
             <!-- CONTENEDOR DERECHO - buscador + usuario -->
             <div class="header-right-section">
@@ -61,10 +112,21 @@ $saldo = "$0.00";
                 
                 <!-- Sección de usuario -->
                 <div class="user-section">
-                    
-                    <span class="fs-5 fw-semibold text-white"><?php echo $saldo; ?></span>
+                    <span class="fw-semibold text-white"><?php echo $saludo; ?></span>
                     <div class="separator"></div>
-                    <span class="fs-5 fw-semibold text-white"><?php echo $usuario; ?></span>
+                    <span class="fw-semibold text-white"><?php echo $saldo; ?></span>
+                    <div class="separator"></div>
+                    <?php if(!isset($_SESSION['usuario_nombre'])): ?>
+                        <a href="login.php" class="btn-login">
+                            LOGIN
+                        </a>
+                    <?php else: ?>
+                        <form method="POST" action="../Controladores/logout.php" style="display: inline;">
+                            <button type="submit" class="btn-logout">
+                                LOGOUT
+                            </button>
+                        </form>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -100,14 +162,14 @@ $saldo = "$0.00";
         </div>
     </main>
 
-    <!-- Footer con hojas -->
+    <!-- Footer con hojas - Mismo diseño que index -->
     <footer class="footer-jardineria text-white text-center p-4 position-relative">
         <div class="leaf-overlay-footer">
             <div class="leaf leaf-7"></div>
             <div class="leaf leaf-8"></div>
             <div class="leaf leaf-9"></div>
         </div>
-        <p class="mb-0 position-relative">Información de la pagina</p>
+        <p class="mb-0 position-relative">© 2025 Jardinería Verde - Todos los derechos reservados</p>
     </footer>
 </div>
 
