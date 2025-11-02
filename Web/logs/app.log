@@ -1,0 +1,170 @@
+[2025-11-02 19:59:25] [INFO] pingLog - test entry {"time":"2025-11-02T19:59:25+01:00"}
+[2025-11-02 20:14:39] [INFO] crearOrdenPaypal - PayPal response headers HTTP/2 201 
+content-type: application/json
+content-length: 501
+date: Sun, 02 Nov 2025 19:14:39 GMT
+access-control-expose-headers: Server-Timing
+application_id: APP-1NC804712K435513M
+cache-control: max-age=0, no-cache, no-store, must-revalidate
+caller_acct_num: WT6L9VJ692PGL
+paypal-debug-id: 37b7b975ecfae
+server-timing: traceparent;desc="00-000000000000000000037b7b975ecfae-751f245ac3ace915-01"
+vary: Accept-Encoding
+http_x_pp_az_locator: ccg18.slc
+strict-transport-security: max-age=31536000; includeSubDomains
+
+
+[2025-11-02 20:14:39] [INFO] crearOrdenPaypal - PayPal response body {"id":"4VW727295A344793X","status":"CREATED","links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/4VW727295A344793X","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/checkoutnow?token=4VW727295A344793X","rel":"approve","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/4VW727295A344793X","rel":"update","method":"PATCH"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/4VW727295A344793X/capture","rel":"capture","method":"POST"}]}
+[2025-11-02 20:15:24] [INFO] capturarOrdenPaypal - request payload {"orderID":"4VW727295A344793X"}
+[2025-11-02 20:15:56] [ERROR] capturarOrdenPaypal - cURL error Recv failure: Connection was reset
+[2025-11-02 20:25:27] [INFO] crearOrdenPaypal - PayPal response headers HTTP/2 201 
+content-type: application/json
+content-length: 501
+date: Sun, 02 Nov 2025 19:25:27 GMT
+access-control-expose-headers: Server-Timing
+application_id: APP-1NC804712K435513M
+cache-control: max-age=0, no-cache, no-store, must-revalidate
+caller_acct_num: WT6L9VJ692PGL
+paypal-debug-id: 9d238ca9803c9
+server-timing: traceparent;desc="00-00000000000000000009d238ca9803c9-63d8cc7d988de35d-01"
+vary: Accept-Encoding
+http_x_pp_az_locator: ccg18.slc
+strict-transport-security: max-age=31536000; includeSubDomains
+
+
+[2025-11-02 20:25:27] [INFO] crearOrdenPaypal - PayPal response body {"id":"0JP07860DM758754C","status":"CREATED","links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/0JP07860DM758754C","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/checkoutnow?token=0JP07860DM758754C","rel":"approve","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/0JP07860DM758754C","rel":"update","method":"PATCH"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/0JP07860DM758754C/capture","rel":"capture","method":"POST"}]}
+[2025-11-02 20:25:39] [INFO] capturarOrdenPaypal - request payload {"orderID":"0JP07860DM758754C"}
+[2025-11-02 20:25:44] [INFO] capturarOrdenPaypal - PayPal response headers HTTP/2 201 
+content-type: application/json
+content-length: 1657
+date: Sun, 02 Nov 2025 19:25:44 GMT
+access-control-expose-headers: Server-Timing
+application_id: APP-1NC804712K435513M
+cache-control: max-age=0, no-cache, no-store, must-revalidate
+caller_acct_num: WT6L9VJ692PGL
+paypal-debug-id: b975b844f1db7
+server-timing: traceparent;desc="00-0000000000000000000b975b844f1db7-0c26c52af05b640a-01"
+vary: Accept-Encoding
+http_x_pp_az_locator: ccg18.slc
+strict-transport-security: max-age=31536000; includeSubDomains
+
+
+[2025-11-02 20:25:44] [INFO] capturarOrdenPaypal - PayPal response body {"id":"0JP07860DM758754C","status":"COMPLETED","payment_source":{"paypal":{"email_address":"sb-47yp2247314185@personal.example.com","account_id":"VFBWRCTP8FHDY","account_status":"VERIFIED","name":{"given_name":"John","surname":"Doe"},"address":{"country_code":"SV"}}},"purchase_units":[{"reference_id":"default","shipping":{"name":{"full_name":"John Doe"},"address":{"address_line_1":"Free Trade Zone","admin_area_2":"San Salvador","admin_area_1":"San Salvador","postal_code":"1120","country_code":"SV"}},"payments":{"captures":[{"id":"04D12220V03895806","status":"COMPLETED","amount":{"currency_code":"USD","value":"5.09"},"final_capture":true,"seller_protection":{"status":"ELIGIBLE","dispute_categories":["ITEM_NOT_RECEIVED","UNAUTHORIZED_TRANSACTION"]},"seller_receivable_breakdown":{"gross_amount":{"currency_code":"USD","value":"5.09"},"paypal_fee":{"currency_code":"USD","value":"0.57"},"net_amount":{"currency_code":"USD","value":"4.52"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/payments/captures/04D12220V03895806","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/payments/captures/04D12220V03895806/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/0JP07860DM758754C","rel":"up","method":"GET"}],"create_time":"2025-11-02T19:25:44Z","update_time":"2025-11-02T19:25:44Z"}]}}],"payer":{"name":{"given_name":"John","surname":"Doe"},"email_address":"sb-47yp2247314185@personal.example.com","payer_id":"VFBWRCTP8FHDY","address":{"country_code":"SV"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/0JP07860DM758754C","rel":"self","method":"GET"}]}
+[2025-11-02 20:25:44] [INFO] capturarOrdenPaypal - PayPal Debug ID b975b844f1db7
+[2025-11-02 20:25:44] [INFO] capturarOrdenPaypal - PayPal capture response {"http_status":201,"response":{"id":"0JP07860DM758754C","status":"COMPLETED","payment_source":{"paypal":{"email_address":"sb-47yp2247314185@personal.example.com","account_id":"VFBWRCTP8FHDY","account_status":"VERIFIED","name":{"given_name":"John","surname":"Doe"},"address":{"country_code":"SV"}}},"purchase_units":[{"reference_id":"default","shipping":{"name":{"full_name":"John Doe"},"address":{"address_line_1":"Free Trade Zone","admin_area_2":"San Salvador","admin_area_1":"San Salvador","postal_code":"1120","country_code":"SV"}},"payments":{"captures":[{"id":"04D12220V03895806","status":"COMPLETED","amount":{"currency_code":"USD","value":"5.09"},"final_capture":true,"seller_protection":{"status":"ELIGIBLE","dispute_categories":["ITEM_NOT_RECEIVED","UNAUTHORIZED_TRANSACTION"]},"seller_receivable_breakdown":{"gross_amount":{"currency_code":"USD","value":"5.09"},"paypal_fee":{"currency_code":"USD","value":"0.57"},"net_amount":{"currency_code":"USD","value":"4.52"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/payments/captures/04D12220V03895806","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/payments/captures/04D12220V03895806/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/0JP07860DM758754C","rel":"up","method":"GET"}],"create_time":"2025-11-02T19:25:44Z","update_time":"2025-11-02T19:25:44Z"}]}}],"payer":{"name":{"given_name":"John","surname":"Doe"},"email_address":"sb-47yp2247314185@personal.example.com","payer_id":"VFBWRCTP8FHDY","address":{"country_code":"SV"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/0JP07860DM758754C","rel":"self","method":"GET"}]}}
+[2025-11-02 20:25:44] [INFO] capturarOrdenPaypal - creando pedido desde carrito {"usuario_id":6,"carrito":[{"id_producto":90,"nombre_producto":"Guante Algodón","precio_unitario":4.5,"cantidad":1,"subtotal":4.5,"imagen_url":"productos/guante_algodon.jpg","sku":"HER002"}]}
+[2025-11-02 20:25:44] [INFO] capturarOrdenPaypal - pedido creado {"pedidoId":5}
+[2025-11-02 20:30:51] [INFO] crearOrdenPaypal - PayPal response headers HTTP/2 201 
+content-type: application/json
+content-length: 501
+date: Sun, 02 Nov 2025 19:30:51 GMT
+access-control-expose-headers: Server-Timing
+application_id: APP-1NC804712K435513M
+cache-control: max-age=0, no-cache, no-store, must-revalidate
+caller_acct_num: WT6L9VJ692PGL
+paypal-debug-id: a91f499bb7b21
+server-timing: traceparent;desc="00-0000000000000000000a91f499bb7b21-37044e61ac694b5a-01"
+vary: Accept-Encoding
+http_x_pp_az_locator: ccg18.slc
+strict-transport-security: max-age=31536000; includeSubDomains
+
+
+[2025-11-02 20:30:51] [INFO] crearOrdenPaypal - PayPal response body {"id":"6N960753UB672892A","status":"CREATED","links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/6N960753UB672892A","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/checkoutnow?token=6N960753UB672892A","rel":"approve","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/6N960753UB672892A","rel":"update","method":"PATCH"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/6N960753UB672892A/capture","rel":"capture","method":"POST"}]}
+[2025-11-02 20:31:24] [INFO] capturarOrdenPaypal - request payload {"orderID":"6N960753UB672892A"}
+[2025-11-02 20:31:29] [INFO] capturarOrdenPaypal - PayPal response headers HTTP/2 201 
+content-type: application/json
+content-length: 1657
+date: Sun, 02 Nov 2025 19:31:29 GMT
+access-control-expose-headers: Server-Timing
+application_id: APP-1NC804712K435513M
+cache-control: max-age=0, no-cache, no-store, must-revalidate
+caller_acct_num: WT6L9VJ692PGL
+paypal-debug-id: 08a64f59574dc
+server-timing: traceparent;desc="00-000000000000000000008a64f59574dc-3c9220d445ec5167-01"
+vary: Accept-Encoding
+http_x_pp_az_locator: ccg18.slc
+strict-transport-security: max-age=31536000; includeSubDomains
+
+
+[2025-11-02 20:31:29] [INFO] capturarOrdenPaypal - PayPal response body {"id":"6N960753UB672892A","status":"COMPLETED","payment_source":{"paypal":{"email_address":"sb-47yp2247314185@personal.example.com","account_id":"VFBWRCTP8FHDY","account_status":"VERIFIED","name":{"given_name":"John","surname":"Doe"},"address":{"country_code":"SV"}}},"purchase_units":[{"reference_id":"default","shipping":{"name":{"full_name":"John Doe"},"address":{"address_line_1":"Free Trade Zone","admin_area_2":"San Salvador","admin_area_1":"San Salvador","postal_code":"1120","country_code":"SV"}},"payments":{"captures":[{"id":"8D155340K1891551X","status":"COMPLETED","amount":{"currency_code":"USD","value":"4.24"},"final_capture":true,"seller_protection":{"status":"ELIGIBLE","dispute_categories":["ITEM_NOT_RECEIVED","UNAUTHORIZED_TRANSACTION"]},"seller_receivable_breakdown":{"gross_amount":{"currency_code":"USD","value":"4.24"},"paypal_fee":{"currency_code":"USD","value":"0.53"},"net_amount":{"currency_code":"USD","value":"3.71"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/payments/captures/8D155340K1891551X","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/payments/captures/8D155340K1891551X/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/6N960753UB672892A","rel":"up","method":"GET"}],"create_time":"2025-11-02T19:31:28Z","update_time":"2025-11-02T19:31:28Z"}]}}],"payer":{"name":{"given_name":"John","surname":"Doe"},"email_address":"sb-47yp2247314185@personal.example.com","payer_id":"VFBWRCTP8FHDY","address":{"country_code":"SV"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/6N960753UB672892A","rel":"self","method":"GET"}]}
+[2025-11-02 20:31:29] [INFO] capturarOrdenPaypal - PayPal Debug ID 08a64f59574dc
+[2025-11-02 20:31:29] [INFO] capturarOrdenPaypal - PayPal capture response {"http_status":201,"response":{"id":"6N960753UB672892A","status":"COMPLETED","payment_source":{"paypal":{"email_address":"sb-47yp2247314185@personal.example.com","account_id":"VFBWRCTP8FHDY","account_status":"VERIFIED","name":{"given_name":"John","surname":"Doe"},"address":{"country_code":"SV"}}},"purchase_units":[{"reference_id":"default","shipping":{"name":{"full_name":"John Doe"},"address":{"address_line_1":"Free Trade Zone","admin_area_2":"San Salvador","admin_area_1":"San Salvador","postal_code":"1120","country_code":"SV"}},"payments":{"captures":[{"id":"8D155340K1891551X","status":"COMPLETED","amount":{"currency_code":"USD","value":"4.24"},"final_capture":true,"seller_protection":{"status":"ELIGIBLE","dispute_categories":["ITEM_NOT_RECEIVED","UNAUTHORIZED_TRANSACTION"]},"seller_receivable_breakdown":{"gross_amount":{"currency_code":"USD","value":"4.24"},"paypal_fee":{"currency_code":"USD","value":"0.53"},"net_amount":{"currency_code":"USD","value":"3.71"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/payments/captures/8D155340K1891551X","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/payments/captures/8D155340K1891551X/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/6N960753UB672892A","rel":"up","method":"GET"}],"create_time":"2025-11-02T19:31:28Z","update_time":"2025-11-02T19:31:28Z"}]}}],"payer":{"name":{"given_name":"John","surname":"Doe"},"email_address":"sb-47yp2247314185@personal.example.com","payer_id":"VFBWRCTP8FHDY","address":{"country_code":"SV"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/6N960753UB672892A","rel":"self","method":"GET"}]}}
+[2025-11-02 20:31:29] [INFO] capturarOrdenPaypal - creando pedido desde carrito {"usuario_id":6,"carrito":[{"id_producto":69,"nombre_producto":"Borraja","precio_unitario":3.75,"cantidad":1,"subtotal":3.75,"imagen_url":"productos/Borraja.jpg","sku":"PLT014"}]}
+[2025-11-02 20:31:29] [INFO] capturarOrdenPaypal - pedido creado {"pedidoId":6}
+[2025-11-02 20:31:29] [INFO] capturarOrdenPaypal - pedido marcado como COMPLETADO {"pedidoId":6}
+[2025-11-02 20:36:33] [INFO] crearOrdenPaypal - PayPal response headers HTTP/2 201 
+content-type: application/json
+content-length: 501
+date: Sun, 02 Nov 2025 19:36:33 GMT
+access-control-expose-headers: Server-Timing
+application_id: APP-1NC804712K435513M
+cache-control: max-age=0, no-cache, no-store, must-revalidate
+caller_acct_num: WT6L9VJ692PGL
+paypal-debug-id: 1c47e5bd74719
+server-timing: traceparent;desc="00-00000000000000000001c47e5bd74719-3b4a51745a62c2dc-01"
+vary: Accept-Encoding
+http_x_pp_az_locator: ccg18.slc
+strict-transport-security: max-age=31536000; includeSubDomains
+
+
+[2025-11-02 20:36:33] [INFO] crearOrdenPaypal - PayPal response body {"id":"5U329349JB405204S","status":"CREATED","links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/5U329349JB405204S","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/checkoutnow?token=5U329349JB405204S","rel":"approve","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/5U329349JB405204S","rel":"update","method":"PATCH"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/5U329349JB405204S/capture","rel":"capture","method":"POST"}]}
+[2025-11-02 20:37:07] [INFO] capturarOrdenPaypal - request payload {"orderID":"5U329349JB405204S"}
+[2025-11-02 20:37:12] [INFO] capturarOrdenPaypal - PayPal response headers HTTP/2 201 
+content-type: application/json
+content-length: 1657
+date: Sun, 02 Nov 2025 19:37:12 GMT
+access-control-expose-headers: Server-Timing
+application_id: APP-1NC804712K435513M
+cache-control: max-age=0, no-cache, no-store, must-revalidate
+caller_acct_num: WT6L9VJ692PGL
+paypal-debug-id: d1c1f99549c8b
+server-timing: traceparent;desc="00-0000000000000000000d1c1f99549c8b-d75b713014f84038-01"
+vary: Accept-Encoding
+http_x_pp_az_locator: ccg18.slc
+strict-transport-security: max-age=31536000; includeSubDomains
+
+
+[2025-11-02 20:37:12] [INFO] capturarOrdenPaypal - PayPal response body {"id":"5U329349JB405204S","status":"COMPLETED","payment_source":{"paypal":{"email_address":"sb-47yp2247314185@personal.example.com","account_id":"VFBWRCTP8FHDY","account_status":"VERIFIED","name":{"given_name":"John","surname":"Doe"},"address":{"country_code":"SV"}}},"purchase_units":[{"reference_id":"default","shipping":{"name":{"full_name":"John Doe"},"address":{"address_line_1":"Free Trade Zone","admin_area_2":"San Salvador","admin_area_1":"San Salvador","postal_code":"1120","country_code":"SV"}},"payments":{"captures":[{"id":"1L2577618X871480Y","status":"COMPLETED","amount":{"currency_code":"USD","value":"5.09"},"final_capture":true,"seller_protection":{"status":"ELIGIBLE","dispute_categories":["ITEM_NOT_RECEIVED","UNAUTHORIZED_TRANSACTION"]},"seller_receivable_breakdown":{"gross_amount":{"currency_code":"USD","value":"5.09"},"paypal_fee":{"currency_code":"USD","value":"0.57"},"net_amount":{"currency_code":"USD","value":"4.52"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/payments/captures/1L2577618X871480Y","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/payments/captures/1L2577618X871480Y/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/5U329349JB405204S","rel":"up","method":"GET"}],"create_time":"2025-11-02T19:37:12Z","update_time":"2025-11-02T19:37:12Z"}]}}],"payer":{"name":{"given_name":"John","surname":"Doe"},"email_address":"sb-47yp2247314185@personal.example.com","payer_id":"VFBWRCTP8FHDY","address":{"country_code":"SV"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/5U329349JB405204S","rel":"self","method":"GET"}]}
+[2025-11-02 20:37:12] [INFO] capturarOrdenPaypal - PayPal Debug ID d1c1f99549c8b
+[2025-11-02 20:37:12] [INFO] capturarOrdenPaypal - PayPal capture response {"http_status":201,"response":{"id":"5U329349JB405204S","status":"COMPLETED","payment_source":{"paypal":{"email_address":"sb-47yp2247314185@personal.example.com","account_id":"VFBWRCTP8FHDY","account_status":"VERIFIED","name":{"given_name":"John","surname":"Doe"},"address":{"country_code":"SV"}}},"purchase_units":[{"reference_id":"default","shipping":{"name":{"full_name":"John Doe"},"address":{"address_line_1":"Free Trade Zone","admin_area_2":"San Salvador","admin_area_1":"San Salvador","postal_code":"1120","country_code":"SV"}},"payments":{"captures":[{"id":"1L2577618X871480Y","status":"COMPLETED","amount":{"currency_code":"USD","value":"5.09"},"final_capture":true,"seller_protection":{"status":"ELIGIBLE","dispute_categories":["ITEM_NOT_RECEIVED","UNAUTHORIZED_TRANSACTION"]},"seller_receivable_breakdown":{"gross_amount":{"currency_code":"USD","value":"5.09"},"paypal_fee":{"currency_code":"USD","value":"0.57"},"net_amount":{"currency_code":"USD","value":"4.52"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/payments/captures/1L2577618X871480Y","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/payments/captures/1L2577618X871480Y/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/5U329349JB405204S","rel":"up","method":"GET"}],"create_time":"2025-11-02T19:37:12Z","update_time":"2025-11-02T19:37:12Z"}]}}],"payer":{"name":{"given_name":"John","surname":"Doe"},"email_address":"sb-47yp2247314185@personal.example.com","payer_id":"VFBWRCTP8FHDY","address":{"country_code":"SV"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/5U329349JB405204S","rel":"self","method":"GET"}]}}
+[2025-11-02 20:37:12] [INFO] capturarOrdenPaypal - creando pedido desde carrito {"usuario_id":6,"carrito":[{"id_producto":90,"nombre_producto":"Guante Algodón","precio_unitario":4.5,"cantidad":1,"subtotal":4.5,"imagen_url":"productos/guante_algodon.jpg","sku":"HER002"}]}
+[2025-11-02 20:37:12] [INFO] capturarOrdenPaypal - pedido creado {"pedidoId":7}
+[2025-11-02 20:37:12] [INFO] capturarOrdenPaypal - pedido marcado como COMPLETADO {"pedidoId":7}
+[2025-11-02 20:40:51] [INFO] crearOrdenPaypal - PayPal response headers HTTP/2 201 
+content-type: application/json
+content-length: 501
+date: Sun, 02 Nov 2025 19:40:51 GMT
+access-control-expose-headers: Server-Timing
+application_id: APP-1NC804712K435513M
+cache-control: max-age=0, no-cache, no-store, must-revalidate
+caller_acct_num: WT6L9VJ692PGL
+paypal-debug-id: bc5542654214f
+server-timing: traceparent;desc="00-0000000000000000000bc5542654214f-c11d9f76eee2d200-01"
+vary: Accept-Encoding
+http_x_pp_az_locator: ccg18.slc
+strict-transport-security: max-age=31536000; includeSubDomains
+
+
+[2025-11-02 20:40:51] [INFO] crearOrdenPaypal - PayPal response body {"id":"2P570355S0750613D","status":"CREATED","links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/2P570355S0750613D","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/checkoutnow?token=2P570355S0750613D","rel":"approve","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/2P570355S0750613D","rel":"update","method":"PATCH"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/2P570355S0750613D/capture","rel":"capture","method":"POST"}]}
+[2025-11-02 20:41:04] [INFO] capturarOrdenPaypal - request payload {"orderID":"2P570355S0750613D"}
+[2025-11-02 20:41:10] [INFO] capturarOrdenPaypal - PayPal response headers HTTP/2 201 
+content-type: application/json
+content-length: 1657
+date: Sun, 02 Nov 2025 19:41:10 GMT
+access-control-expose-headers: Server-Timing
+application_id: APP-1NC804712K435513M
+cache-control: max-age=0, no-cache, no-store, must-revalidate
+caller_acct_num: WT6L9VJ692PGL
+paypal-debug-id: ace583ca05552
+server-timing: traceparent;desc="00-0000000000000000000ace583ca05552-5a353114879f57a1-01"
+vary: Accept-Encoding
+http_x_pp_az_locator: ccg18.slc
+strict-transport-security: max-age=31536000; includeSubDomains
+
+
+[2025-11-02 20:41:10] [INFO] capturarOrdenPaypal - PayPal response body {"id":"2P570355S0750613D","status":"COMPLETED","payment_source":{"paypal":{"email_address":"sb-47yp2247314185@personal.example.com","account_id":"VFBWRCTP8FHDY","account_status":"VERIFIED","name":{"given_name":"John","surname":"Doe"},"address":{"country_code":"SV"}}},"purchase_units":[{"reference_id":"default","shipping":{"name":{"full_name":"John Doe"},"address":{"address_line_1":"Free Trade Zone","admin_area_2":"San Salvador","admin_area_1":"San Salvador","postal_code":"1120","country_code":"SV"}},"payments":{"captures":[{"id":"7RT421705N1508053","status":"COMPLETED","amount":{"currency_code":"USD","value":"3.67"},"final_capture":true,"seller_protection":{"status":"ELIGIBLE","dispute_categories":["ITEM_NOT_RECEIVED","UNAUTHORIZED_TRANSACTION"]},"seller_receivable_breakdown":{"gross_amount":{"currency_code":"USD","value":"3.67"},"paypal_fee":{"currency_code":"USD","value":"0.50"},"net_amount":{"currency_code":"USD","value":"3.17"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/payments/captures/7RT421705N1508053","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/payments/captures/7RT421705N1508053/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/2P570355S0750613D","rel":"up","method":"GET"}],"create_time":"2025-11-02T19:41:09Z","update_time":"2025-11-02T19:41:09Z"}]}}],"payer":{"name":{"given_name":"John","surname":"Doe"},"email_address":"sb-47yp2247314185@personal.example.com","payer_id":"VFBWRCTP8FHDY","address":{"country_code":"SV"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/2P570355S0750613D","rel":"self","method":"GET"}]}
+[2025-11-02 20:41:10] [INFO] capturarOrdenPaypal - PayPal Debug ID ace583ca05552
+[2025-11-02 20:41:10] [INFO] capturarOrdenPaypal - PayPal capture response {"http_status":201,"response":{"id":"2P570355S0750613D","status":"COMPLETED","payment_source":{"paypal":{"email_address":"sb-47yp2247314185@personal.example.com","account_id":"VFBWRCTP8FHDY","account_status":"VERIFIED","name":{"given_name":"John","surname":"Doe"},"address":{"country_code":"SV"}}},"purchase_units":[{"reference_id":"default","shipping":{"name":{"full_name":"John Doe"},"address":{"address_line_1":"Free Trade Zone","admin_area_2":"San Salvador","admin_area_1":"San Salvador","postal_code":"1120","country_code":"SV"}},"payments":{"captures":[{"id":"7RT421705N1508053","status":"COMPLETED","amount":{"currency_code":"USD","value":"3.67"},"final_capture":true,"seller_protection":{"status":"ELIGIBLE","dispute_categories":["ITEM_NOT_RECEIVED","UNAUTHORIZED_TRANSACTION"]},"seller_receivable_breakdown":{"gross_amount":{"currency_code":"USD","value":"3.67"},"paypal_fee":{"currency_code":"USD","value":"0.50"},"net_amount":{"currency_code":"USD","value":"3.17"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/payments/captures/7RT421705N1508053","rel":"self","method":"GET"},{"href":"https://api.sandbox.paypal.com/v2/payments/captures/7RT421705N1508053/refund","rel":"refund","method":"POST"},{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/2P570355S0750613D","rel":"up","method":"GET"}],"create_time":"2025-11-02T19:41:09Z","update_time":"2025-11-02T19:41:09Z"}]}}],"payer":{"name":{"given_name":"John","surname":"Doe"},"email_address":"sb-47yp2247314185@personal.example.com","payer_id":"VFBWRCTP8FHDY","address":{"country_code":"SV"}},"links":[{"href":"https://api.sandbox.paypal.com/v2/checkout/orders/2P570355S0750613D","rel":"self","method":"GET"}]}}
+[2025-11-02 20:41:10] [INFO] capturarOrdenPaypal - creando pedido desde carrito {"usuario_id":6,"carrito":[{"id_producto":68,"nombre_producto":"Berro","precio_unitario":3.25,"cantidad":1,"subtotal":3.25,"imagen_url":"productos/Berro.jpg","sku":"PLT013"}]}
+[2025-11-02 20:41:10] [INFO] capturarOrdenPaypal - pedido creado {"pedidoId":8}
+[2025-11-02 20:41:10] [INFO] capturarOrdenPaypal - pedido marcado como COMPLETADO {"pedidoId":8}

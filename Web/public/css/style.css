@@ -1,0 +1,451 @@
+/* ============================================
+                BASE GLOBAL
+============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FAF3E0;
+    color: #333333;
+}
+
+/* ============================================
+   ESTRUCTURA GENERAL
+============================================ */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.main-content {
+    min-height: calc(100vh - 200px);
+    padding: 40px 0;
+}
+
+/* ============================================
+   COMPONENTES GENERALES
+============================================ */
+
+/* ---------- BOTONES ---------- */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #FF9800 !important;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #FF9800 !important;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: #4a7c2d !important;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #3d6b1f !important;
+    transform: scale(1.05);
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+}
+
+/* ---------- TEXTOS Y OTROS ---------- */
+.descripcion {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.precio {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2d5016;
+}
+
+.stock {
+    color: #666;
+    font-size: 14px;
+}
+
+/* ============================================
+   HEADER PERSONALIZADO
+============================================ */
+.main-header {
+    background: linear-gradient(135deg, #1E5631 0%, #226338 50%, #1E5631 100%);
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1400px;
+    height: 40px;
+    margin: 0 auto;
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
+    min-height: 35px;
+}
+
+.navbar-dark .nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar-brand,
+.navbar-dark .nav-link {
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.navbar-brand:hover,
+.navbar-dark .nav-link:hover {
+    transform: scale(1.1);
+    color: #bce3c5 !important;
+}
+
+.navbar .btn-outline-light:hover {
+    background-color: #ffffff !important;
+    color: #0E3E33 !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================
+   HERO SECTION (BIENVENIDA)
+============================================ */
+.hero {
+    background: linear-gradient(135deg, #1E5631 0%, #226338 50%, #1E5631 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    margin-bottom: 40px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+/* ============================================
+   CATEGORÍAS
+============================================ */
+.categorias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 60px 0;
+}
+
+.categoria-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.categoria-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.categoria-imagen {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.categoria-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+}
+
+.categoria-card:hover .categoria-imagen img {
+    transform: scale(1.08);
+}
+
+.categoria-info {
+    padding: 30px;
+    text-align: center;
+}
+
+.categoria-info h3 {
+    color: #2d5016;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.categoria-info p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   PRODUCTOS (GENERAL + DESTACADOS)
+============================================ */
+.producto-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+}
+
+.producto-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+.producto-card:hover .producto-imagen img {
+    transform: scale(1.05);
+}
+
+.producto-info h5,
+.producto-info h3 {
+    color: #2d5016;
+    font-weight: bold;
+}
+
+.producto-footer .precio {
+    font-size: 1.3rem;
+    color: #2d5016;
+    font-weight: bold;
+}
+
+/* ============================================
+   LOGIN PAGE
+============================================ */
+.login-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
+    margin: 60px auto;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.login-form {
+    padding: 60px;
+}
+
+.login-form h2 {
+    color: #2d5016;
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    margin: 15px 0 5px;
+    font-weight: bold;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.login-form button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.login-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================
+   CARRITO
+============================================ */
+.tabla-carrito table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 40px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tabla-carrito th, .tabla-carrito td {
+    padding: 15px;
+    text-align: center;
+}
+
+.tabla-carrito thead {
+    background: #2d663b;
+    color: white;
+}
+
+.cantidad-btn {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #2d663b;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cantidad-btn:hover {
+    background: #1f4d2a;
+}
+
+.resumen-carrito {
+    text-align: right;
+    margin-top: 20px;
+    line-height: 2;
+}
+
+/* ============================================
+   FOOTER
+============================================ */
+.main-footer {
+    background: linear-gradient(135deg, #1E5631 0%, #226338 50%, #1E5631 100%);
+    color: #ffffff;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.25);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: 500;
+    position: relative;
+    z-index: 1000;
+}
+
+.main-footer p {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.95;
+}
+
+.main-footer p:hover {
+    color: #bce3c5;
+    transform: scale(1.03);
+    transition: all 0.3s ease;
+}
+
+.main-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.1), transparent);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+============================================ */
+@media (max-width: 1024px) {
+    .header-content {
+        grid-template-columns: auto 1fr;
+        gap: 20px;
+    }
+
+    .header-actions {
+        grid-column: 1 / -1;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .categorias-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 60px 15px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .main-footer {
+        padding: 20px 10px;
+        font-size: 0.95rem;
+    }
+}
