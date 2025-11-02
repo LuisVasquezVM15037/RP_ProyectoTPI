@@ -10,14 +10,14 @@
                 <div class="card-body">
                     <p class="text-center">Total a pagar: <strong>$<?php echo number_format($total ?? 0, 2); ?></strong></p>
                     <hr>
-                    <p class="text-center">Seleccione su mtodo de pago:</p>
+                    <p class="text-center">Seleccione su metodo de pago:</p>
                     
                     <!-- Contenedor para el botn de PayPal -->
                     <div id="paypal-button-container" class="mt-4"></div>
 
                 </div>
                 <div class="card-footer text-center">
-                    <small>Sers redirigido a PayPal para un pago seguro.</small>
+                    <small>Será redirigido a PayPal para un pago seguro.</small>
                 </div>
             </div>
         </div>

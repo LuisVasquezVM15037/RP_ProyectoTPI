@@ -32,8 +32,7 @@ $carrito_total = isset($_SESSION['carrito']) ? $productoModel->calcularTotalCarr
 <body>
     <!-- HEADER PRINCIPAL -->
     <header class="main-header shadow-sm">
-        <nav class="navbar navbar-expand-lg navbar-dark py-3"
-            style="background: linear-gradient(135deg, #0E3E33 0%, #14614f 50%, #0E3E33 100%);">
+        <nav class="navbar navbar-expand-lg navbar-dark py-3">
             <div class="container-fluid px-3">
                 <!-- Logo -->
                 <a class="navbar-brand fw-bold fs-3" href="<?= BASE_URL ?>">Tienda Verde</a>
