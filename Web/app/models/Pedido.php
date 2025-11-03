@@ -175,13 +175,18 @@ class Pedido extends Model
                 throw new Exception("Se requiere correo para compra anónima");
             }
 
+            // Determinar el estado inicial del pedido
+            // Contado (0,1,2,3) = Pagado; Crédito (4) = Pendiente solo si es a plazos (>1 cuotas)
+            $estadoInicial = ($metodo == 4 && (int)$cuotas > 1) ? 1 : 2;
+            
             // Insertar pedido
             $stmt = $this->db->prepare("
                 INSERT INTO pedido (id_usuario, fecha_pedido, estado_pedido, total_pedido, direccion_envio, impuesto_IVA, metodo_pago, email_comprador_anonimo)
-                VALUES (:id_usuario, CURDATE(), 1, :total, :direccion, :iva, :metodo, :email)
+                VALUES (:id_usuario, CURDATE(), :estado, :total, :direccion, :iva, :metodo, :email)
             ");
             $stmt->execute([
                 ':id_usuario' => $usuario_id,
+                ':estado' => $estadoInicial,
                 ':total' => $total,
                 ':direccion' => $direccion,
                 ':iva' => $iva,
@@ -284,10 +289,11 @@ class Pedido extends Model
             $stmt = $this->db->prepare("
             INSERT INTO pedido (id_usuario, fecha_pedido, estado_pedido, total_pedido, 
                                 direccion_envio, impuesto_IVA, metodo_pago, email_comprador_anonimo)
-            VALUES (:usuario_id, NOW(), 1, :total, :direccion, :iva, :metodo, :email)
+            VALUES (:usuario_id, NOW(), :estado, :total, :direccion, :iva, :metodo, :email)
         ");
             $stmt->execute([
                 ':usuario_id' => $usuario_id,
+                ':estado' => ($metodo == 4 && (int)$cuotas > 1) ? 1 : 2,
                 ':total' => $total_con_iva,
                 ':direccion' => $direccion,
                 ':iva' => $iva,

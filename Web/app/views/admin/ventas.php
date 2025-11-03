@@ -4,6 +4,12 @@
   <h5 class="mb-0">💰 Ventas</h5>
 </div>
 
+<div class="d-flex justify-content-end mb-3">
+  <a href="<?= BASE_URL ?>reporte/exportarVentasExcel" class="btn btn-success">
+    <i class="bi bi-file-earmark-excel"></i> Exportar a Excel
+  </a>
+</div>
+
 <!-- === MÉTRICAS DE RESUMEN === -->
 <div class="row g-3 mb-3">
   <div class="col-sm-4">

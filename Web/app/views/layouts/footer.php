@@ -1,6 +1,10 @@
 </main>
 
-<footer class="main-footer mt-5">
+<footer class="footer-jardineria main-footer mt-5">
+    <div class="leaf-overlay-footer">
+        <div class="leaf leaf-7"></div>
+        <div class="leaf leaf-8"></div>
+    </div>
     <div class="container footer-content text-center py-4">
         <p class="mb-0 text-white fw-semibold">
             © <?= date('Y') ?> Jardinería Verde - Todos los derechos reservados - TPI115 - Ciclo 02

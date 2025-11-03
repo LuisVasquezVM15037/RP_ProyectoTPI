@@ -264,6 +264,187 @@ class PedidoController extends Controller
         exit();
     }
     
+    // Procesar pagos no-PayPal
+    public function procesarPago()
+    {
+        if (session_status() === PHP_SESSION_NONE) session_start();
+        header('Content-Type: application/json');
+        
+        // Verificar si hay carrito y total (evitar empty() en total para valores 0.00)
+        if (!isset($_SESSION['carrito']) || !is_array($_SESSION['carrito']) || count($_SESSION['carrito']) === 0
+            || !isset($_SESSION['total']) || (float)$_SESSION['total'] <= 0) {
+            echo json_encode(['success' => false, 'message' => 'Carrito vacío o total inválido']);
+            exit();
+        }
+
+        $metodoPago = $_POST['metodoPago'] ?? '';
+        $direccion = $_POST['direccion'] ?? '';
+        
+        if (empty($metodoPago) || empty($direccion)) {
+            echo json_encode(['success' => false, 'message' => 'Faltan datos requeridos']);
+            exit();
+        }
+
+        // Validar stock antes de procesar
+        $productoModel = $this->model('Producto');
+        $carrito = $_SESSION['carrito'];
+        $stockInvalido = false;
+        $mensajeError = '';
+
+        foreach ($carrito as $item) {
+            $producto = $productoModel->obtenerPorId($item['id_producto']);
+            if (!$producto) {
+                $stockInvalido = true;
+                $mensajeError = 'Producto no encontrado';
+                break;
+            }
+            if ($producto['stock'] < $item['cantidad']) {
+                $stockInvalido = true;
+                $mensajeError = 'Stock insuficiente para ' . $item['nombre_producto'];
+                break;
+            }
+        }
+
+        if ($stockInvalido) {
+            echo json_encode(['success' => false, 'message' => $mensajeError]);
+            exit();
+        }
+
+        $pedidoModel = $this->model('Pedido');
+        $usuario_id = $_SESSION['usuario_id'] ?? null;
+        // Contado (0,1,2,3) = Pagado; Crédito (4) = Pendiente solo si es a plazos (>1 cuotas)
+        $cuotas = 1; // en este flujo no-crédito lo fijamos en 1
+        $estadoInicial = (((string)$metodoPago === '4') && $cuotas > 1) ? 1 : 2;
+        
+        try {
+            $pedidoId = $pedidoModel->crearPedidoDesdeCarritoConPago(
+                $carrito,
+                $usuario_id,
+                $direccion,
+                (int)$metodoPago,
+                $cuotas, // cuotas = 1 para pagos que no son a crédito
+                null // email_anonimo
+            );
+
+            if ($pedidoId) {
+                // Actualizar estado del pedido (Pagado para contado; Pendiente solo si crédito)
+                $pedidoModel->actualizarEstado($pedidoId, $estadoInicial);
+                
+                // Limpiar carrito
+                unset($_SESSION['carrito']);
+                unset($_SESSION['total']);
+                
+                echo json_encode([
+                    'success' => true,
+                    'pedidoId' => $pedidoId,
+                    'message' => 'Pedido procesado correctamente'
+                ]);
+                exit();
+            }
+        } catch (Exception $e) {
+            Logger::error('procesarPago - Error al crear pedido', [
+                'error' => $e->getMessage(),
+                'metodo_pago' => $metodoPago,
+                'usuario_id' => $usuario_id
+            ]);
+        }
+
+        echo json_encode([
+            'success' => false,
+            'message' => 'Error al procesar el pedido. Por favor intente nuevamente.'
+        ]);
+        exit();
+    }
+
+    // Procesar compra desde la vista pedido/confirmar.php (submit tradicional)
+    public function confirmarCompra()
+    {
+        if (session_status() === PHP_SESSION_NONE) session_start();
+
+        // Validar carrito en sesión (el total lo recalculamos)
+        if (!isset($_SESSION['carrito']) || !is_array($_SESSION['carrito']) || count($_SESSION['carrito']) === 0) {
+            $_SESSION['flash'] = ['type' => 'warning', 'message' => 'Carrito vacío'];
+            header('Location: ' . BASE_URL . 'carrito');
+            exit();
+        }
+
+        // Normalizar campos del formulario
+        $direccion = $_POST['direccion_envio'] ?? $_POST['direccion'] ?? '';
+        $metodoForm = isset($_POST['metodo_pago']) ? (int)$_POST['metodo_pago'] : (isset($_POST['metodoPago']) ? (int)$_POST['metodoPago'] : 0);
+        $totalCuotas = isset($_POST['total_cuotas']) ? (int)$_POST['total_cuotas'] : 0;
+
+        // Usar el método tal cual viene de la vista (0=Efectivo, 1=Tarjeta, 2=Transferencia, 3=PayPal, 4=Crédito)
+        $metodo = $metodoForm;
+
+        // Si el usuario eligió PayPal en esta vista, se maneja con el botón de PayPal (JS), no por submit
+        if ($metodo === 3) {
+            header('Location: ' . BASE_URL . 'carrito/pago');
+            exit();
+        }
+
+        if (empty($direccion)) {
+            $_SESSION['flash'] = ['type' => 'warning', 'message' => 'Debes ingresar una dirección de envío'];
+            header('Location: ' . BASE_URL . 'pedido/confirmar');
+            exit();
+        }
+
+        // Validar stock nuevamente y recalcular precios antes de crear pedido
+        $productoModel = $this->model('Producto');
+        $carrito = $_SESSION['carrito'];
+        foreach ($carrito as $idx => $item) {
+            $producto = $productoModel->obtenerPorId($item['id_producto']);
+            if (!$producto || (int)$producto['stock'] < (int)$item['cantidad']) {
+                $_SESSION['flash'] = ['type' => 'warning', 'message' => 'Stock insuficiente para ' . ($item['nombre_producto'] ?? 'producto')];
+                header('Location: ' . BASE_URL . 'carrito');
+                exit();
+            }
+            // Ajustar precio a último valor de BD
+            $carrito[$idx]['precio_unitario'] = (float)$producto['precio_unitario'];
+            $carrito[$idx]['subtotal'] = round($carrito[$idx]['precio_unitario'] * (int)$carrito[$idx]['cantidad'], 2);
+        }
+        // Persistir ajustes al carrito en sesión
+        $_SESSION['carrito'] = $carrito;
+
+        // Crear pedido y descontar stock
+        $pedidoModel = $this->model('Pedido');
+        $usuario_id = $_SESSION['usuario_id'] ?? null;
+        $cuotas = ($metodo === 4 && $totalCuotas > 1) ? $totalCuotas : 1;
+
+        try {
+            $pedidoId = $pedidoModel->crearPedidoDesdeCarritoConPago(
+                $carrito,
+                $usuario_id,
+                $direccion,
+                (int)$metodo,
+                (int)$cuotas,
+                null
+            );
+
+            if ($pedidoId) {
+                // Contado (0,1,2,3) = Pagado; Crédito (4) = Pendiente solo si es a plazos (>1 cuotas)
+                $estadoInicial = ($metodo === 4 && $cuotas > 1) ? 1 : 2;
+                $pedidoModel->actualizarEstado($pedidoId, $estadoInicial);
+
+                // Limpiar carrito
+                unset($_SESSION['carrito']);
+                unset($_SESSION['total']);
+
+                header('Location: ' . BASE_URL . 'pedido/confirmacion/' . $pedidoId);
+                exit();
+            }
+        } catch (Exception $e) {
+            Logger::error('confirmarCompra - Error al crear pedido', [
+                'error' => $e->getMessage(),
+                'metodo' => $metodo,
+                'usuario_id' => $usuario_id
+            ]);
+        }
+
+        $_SESSION['flash'] = ['type' => 'danger', 'message' => 'No se pudo procesar la compra. Intente nuevamente.'];
+        header('Location: ' . BASE_URL . 'carrito');
+        exit();
+    }
+    
     // --- Métodos existentes ---
 
     public function index()

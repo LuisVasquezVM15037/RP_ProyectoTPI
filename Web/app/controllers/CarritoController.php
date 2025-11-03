@@ -272,13 +272,52 @@ class CarritoController extends Controller
             exit();
         }
 
-        $subtotal = array_sum(array_column($carrito, 'subtotal'));
-        $iva = $subtotal * 0.13;
-        $total = $subtotal + $iva;
+        // Validar stock y actualizar precios
+        $productoModel = $this->model('Producto');
+        $stockInvalido = false;
+        $subtotal = 0;
+
+        foreach ($carrito as &$item) {
+            $producto = $productoModel->obtenerPorId($item['id_producto']);
+            if (!$producto) {
+                $stockInvalido = true;
+                break;
+            }
+
+            // Validar stock
+            if ($producto['stock'] < $item['cantidad']) {
+                $_SESSION['flash'] = [
+                    'type' => 'warning',
+                    'message' => 'Stock insuficiente para ' . $item['nombre_producto']
+                ];
+                $stockInvalido = true;
+                break;
+            }
+
+            // Actualizar precio por si hubo cambios
+            $item['precio_unitario'] = (float)$producto['precio_unitario'];
+            $item['subtotal'] = round($item['precio_unitario'] * $item['cantidad'], 2);
+            $subtotal += $item['subtotal'];
+        }
+
+        if ($stockInvalido) {
+            header('Location: ' . BASE_URL . 'carrito');
+            exit();
+        }
+
+        // Actualizar carrito con precios actualizados
+        $_SESSION['carrito'] = $carrito;
+
+        $iva = round($subtotal * 0.13, 2);
+        $total = round($subtotal + $iva, 2);
 
         $_SESSION['total'] = $total; // Asegurarse de que el total esté en la sesión para PayPal
 
-        $this->view('carrito/pago', ['total' => $total]);
+        $this->view('carrito/pago', [
+            'total' => $total,
+            'subtotal' => $subtotal,
+            'iva' => $iva
+        ]);
     }
 
 

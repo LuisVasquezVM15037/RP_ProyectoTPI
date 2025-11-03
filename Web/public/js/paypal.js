@@ -1,3 +1,77 @@
+// Manejador del formulario de pago
+document.addEventListener('DOMContentLoaded', function() {
+    const formPago = document.getElementById('formPago');
+    const paypalContainer = document.getElementById('paypal-button-container');
+    const paymentDetails = document.getElementById('paymentDetails');
+    const direccionGroup = document.getElementById('direccionGroup');
+    const btnConfirmarPago = document.getElementById('btnConfirmarPago');
+
+    // Mostrar/ocultar campos según el método de pago
+    document.querySelectorAll('input[name="metodoPago"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            paymentDetails.classList.remove('d-none');
+            paypalContainer.classList.add('d-none');
+            btnConfirmarPago.classList.remove('d-none');
+
+            if (this.value === '3') { // PayPal
+                paypalContainer.classList.remove('d-none');
+                btnConfirmarPago.classList.add('d-none');
+            }
+        });
+    });
+
+    // Manejar envío del formulario para otros métodos de pago
+    btnConfirmarPago.addEventListener('click', function() {
+        const metodoPago = document.querySelector('input[name="metodoPago"]:checked');
+        const direccion = document.getElementById('direccion').value;
+
+        if (!metodoPago) {
+            alert('Por favor seleccione un método de pago');
+            return;
+        }
+
+        if (metodoPago.value === '3') { // Si es PayPal, no hacer nada aquí
+            return;
+        }
+
+        if (!direccion.trim()) {
+            alert('Por favor ingrese una dirección de envío');
+            return;
+        }
+
+        // Crear FormData para enviar
+        const formData = new FormData(formPago);
+
+        // Enviar al backend
+        const BASE = (window.BASE_URL || '/');
+        fetch(BASE + 'pedido/procesarPago', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Update cart total in header
+                const cartTotalElement = document.querySelector('.cart-total');
+                if (cartTotalElement) {
+                    cartTotalElement.textContent = '$0.00';
+                }
+                window.location.href = '/Web/pedido/confirmacion/' + data.pedidoId;
+            } else {
+                alert(data.message || 'Error al procesar el pago');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error al procesar el pago. Por favor intente nuevamente.');
+        });
+    });
+
+    // Prevenir el envío tradicional del formulario
+    formPago.addEventListener('submit', function(e) {
+        e.preventDefault();
+    });
+});
 
 // PayPal Buttons: createOrder -> backend -> capture via backend
 paypal.Buttons({
@@ -12,7 +86,8 @@ paypal.Buttons({
     createOrder: function(data, actions) {
         // Llama a nuestro backend para crear la orden (puede ser crearOrdenPaypal o testPaypal)
         console.log('[PayPal] createOrder -> calling backend to create order');
-        return fetch('/Web/pedido/crearOrdenPaypal', {
+        const BASE = (window.BASE_URL || '/');
+        return fetch(BASE + 'pedido/crearOrdenPaypal', {
             method: 'POST'
         }).then(function(res) {
             console.log('[PayPal] createOrder -> backend responded, status:', res.status);
@@ -33,7 +108,8 @@ paypal.Buttons({
     onApprove: function(data, actions) {
         // Capturamos la orden mediante el backend para mantener las credenciales seguras
         console.log('[PayPal] onApprove -> orderID', data.orderID);
-        return fetch('/Web/pedido/capturarOrdenPaypal', {
+        const BASE = (window.BASE_URL || '/');
+        return fetch(BASE + 'pedido/capturarOrdenPaypal', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ orderID: data.orderID })
